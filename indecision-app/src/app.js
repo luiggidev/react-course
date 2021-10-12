@@ -1,10 +1,5 @@
 console.log('App.js is running!');
 
-console.log('Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium');
-console.log('aspernatur aut odit aut fugit, sed quia consequuntur magni');
-console.log('dolore magnam aliquam quaerat voluptatem');
-console.log('laboriosam, nisi ut aliquid ex ea commodi consequatur');
-
 const app = {
   title: 'Indecision App',
   subtitle: 'Put your life in the hands of a computer',
