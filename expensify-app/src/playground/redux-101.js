@@ -59,3 +59,6 @@ store.dispatch(decrementCount());
 store.dispatch(decrementCount({ decrementBy: 10 }));
 
 store.dispatch(setCount({ count: -100 }));
+
+
+console.log('redux test')
