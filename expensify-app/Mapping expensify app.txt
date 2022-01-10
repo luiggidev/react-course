@@ -1,0 +1,66 @@
+Mapping expensify app
+
+actions
+    expenses
+        addExpense
+        removeExpense
+        editExpense
+    filters
+        setTextFilter
+        sortByDate
+        sortByAmount
+        sortByDate
+        setStartDate
+        setEndDate
+
+components
+    AddExpensePage
+        -After onSubmit Grabs value from ExpenseForm and creates the dispatch for addExpense
+        -After onSubmit also provides the redirect to dashboard '/'
+    EditExpensePage
+        -Grabs the Id from ExpenseListItem after redirect from URL?
+        -Uses this to set the individual expense to edit
+        -The individual expense is passed as a prop inside ExpenseForm.
+
+    ExpenseDashboardPage
+        -just calls ExpenseListFilters and ExpenseList components
+
+    ExpenseForm
+        -Called by AddExpensePage and EditExpensePage
+        -Renders the form for all the inputs
+        -Each input has a onChange that calls a function for each expense item: onDescriptionChange, onNoteChange ...
+        -That function calls setState() for re-rendering and changing the object value using e.target.value for each input.
+
+    ExpenseList 
+        -Grabs expenses and outputs ExpenseListItem if expense length > 0
+        -Uses .map to go trough all expenses and outputs each expense
+    ExpenseListFilters
+        -Imports all filters from action/filters
+        -Sets the filters markup for the dashboard page, filter by expense name, sortBy ( date or amount ) and date ranges
+        -Uses airbnb DateRangePicker component from the react-dates library
+        -Uses onChange to activate .dispatch to alter the redux store ( store manages the states )
+
+    ExpenseListItem
+        -Uses id, description, amount and createdAt and generates the final markup for those
+        -Also adds a link inside description to the edit section
+
+    Header
+        -Sets links '/' and '/create/ using NavLink component from 'react-router-dom'
+    HelpPage
+        -Not created, but its a standard component
+    NotFoundPage
+        -Standard 404 page
+        -Its fired inside AppRouter
+
+reducers
+    expenses
+    filters
+    
+routers
+    AppRouter
+        -Manages all the router states inside react
+        -Also Cals Header component
+selectors
+    expenses
+        -Gets visible expenses
+store
