@@ -64,3 +64,5 @@ selectors
     expenses
         -Gets visible expenses
 store
+
+.
